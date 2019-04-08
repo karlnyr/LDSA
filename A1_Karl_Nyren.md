@@ -53,4 +53,5 @@ $ less part-r-00000
 ### Task 1.4
 
 Beneath is graph attached:
+
 ![alt text](https://github.com/kethuth/LDSA/blob/A1/word_counts.png)
