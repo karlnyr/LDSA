@@ -1,7 +1,7 @@
 #Assignment 1 - Karl Nyrén
 In this lab we will go through the basic usage of Hadoop/MapReduce models.
 
-## Task 1
+## Part 1
 
 ### Task 1.1
 In the follwoding answer I ran the following code:
@@ -52,6 +52,12 @@ $ less part-r-00000
 
 ### Task 1.4
 
-Beneath is graph attached:
+See attached graph:
 
 ![alt text](https://github.com/kethuth/LDSA/blob/A1/word_counts.png)
+
+## Part II
+
+1. I would say that they are semi-structured data in the sense that their meta data is structured - such as date posted, the id etc. - however the texts themselves will be very unstructured. They key part of using RDBMs is to be able to store the items with their unique keys, however if we want to analyse the tweets we cannot get any further than the metadata in an RDBM before things starts to get very slow. By using key values and MapReduction one could analyse the content as well without slowing down the process to much. 
+
+
