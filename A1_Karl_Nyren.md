@@ -54,7 +54,7 @@ $ less part-r-00000
 
 See attached graph:
 
-![Frequency of word starting characters](https://github.com/kethuth/LDSA/blob/A1/word_counts.png)
+![Frequency of word starting characters](https://github.com/kethuth/LDSA/blob/A1/Scripts/word_counts.png)
 
 ## Part II
 
