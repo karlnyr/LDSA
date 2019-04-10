@@ -15,6 +15,7 @@ def plot_normalized(dictionary, count):
     plt.bar(x, y)
     plt.xlabel(f"Noun")
     plt.ylabel(f"Frequency")
+    plt.title(f"Frequency of Swedish nouns in tweets")
     plt.savefig('noun_freq.png')
 
 

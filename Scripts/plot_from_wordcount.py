@@ -22,8 +22,9 @@ def main():
         Y[word] = array_characters[word].count
     fig = plt.figure('word_counts')
     plt.bar(X, Y)
-    plt.xlabel("Character starting word")
-    plt.ylabel("Counts")
+    plt.xlabel(f"Character starting word")
+    plt.ylabel(f"Counts")
+    plt.title(f"Counts of characters starting a word")
     fig.savefig('word_counts.png')
 
 
