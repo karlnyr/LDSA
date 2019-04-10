@@ -1,39 +1,27 @@
 #!/usr/bin/env python3
-"""reducer.py"""
 
-# from operator import itemgetter
+import matplotlib as plt
 import sys
 
-current_word = None
-current_count = 0
-word = None
 
-# input comes from STDIN
-for line in sys.stdin:
-    # remove leading and trailing whitespace
-    line = line.strip(',')
-    # parse the input we got from mapper.py
-    word, count = line.split(' ', 1)
+def plot_normalized(dict, count):
+    """plotting the normalized tweet counts."""
 
-    # convert count (currently a string) to int
-    try:
-        count = int(count)
-    except ValueError:
-        # count was not a number, so silently
-        # ignore/discard this line
-        continue
+    normalized_counts = [0] * len(dict.keys())
+    for noun in dict:
+        normalized_counts[noun] = dict[noun] / count
 
-    # this IF-switch only works because Hadoop sorts map output
-    # by key (here: word) before it is passed to the reducer
-    if current_word == word:
-        current_count += count
-    else:
-        if current_word:
-            # write result to STDOUT
-            print(f"{current_word}, {current_count}")
-        current_count = count
-        current_word = word
 
-# do not forget to output the last word if needed!
-if current_word == word:
-    print(f"{current_word} {current_count}")
+def main():
+    noun_freq = {'han': 0, 'hon': 0, 'det': 0, 'den': 0, 'denne': 0, 'denna': 0, 'hen': 0}  # Designated words to map
+    count = 0
+    for noun in sys.stdin:
+    clean_noun = noun.strip()
+    if clean_noun.isalpha():
+        if clean_noun in noun_freq:
+            noun_freq[clean_noun] += 1
+    elif clean_noun.isdigit():
+        count += int(clean_noun)
+
+    plt.figure()
+    plt.

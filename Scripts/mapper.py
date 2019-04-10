@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
-"""mapper.py"""
-
+import json
 import sys
+import re
 
-# input comes from STDIN (standard input)
+"""The purpose of this script is to  """
+
+count = 0  # Number of total unique tweets read from process.
+nouns = ['han', 'hon', 'det', 'den', 'denne', 'denna', 'hen']  # Designated words to map
+
+
 for line in sys.stdin:
-    # remove leading and trailing whitespace
-    line = line.strip()
-    # split the line into words
-    words = line.split()
-    # increase counters
-    for word in words:
-        # write the results to STDOUT (standard output);
-        # what we output here will be the input for the
-        # Reduce step, i.e. the input for reducer.py
-        #
-        # tab-delimited; the trivial word count is 1
-        print(f"{word.lower()} 1")
+    if not line == '\n':
+        json_line = json.loads(line)
+        try:  # Using error when searching dictionary missing Key
+            json_line['retweeted_status']
+        except KeyError:
+            for word in json_line['text'].lower().split():
+                if word in nouns:
+                    print(f"{word}")  # Printing out touples to std.in
+            count += 1
+print(f"{count}")
