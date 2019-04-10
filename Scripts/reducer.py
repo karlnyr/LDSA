@@ -2,28 +2,24 @@
 
 import sys
 
+current_noun = None
+current_count = 0
+noun = None
 
-def main():
-    """Designating the main lattice used for noun selection)"""
+for line in sys.stdin:
+    clean_tuple = line.strip()
+    noun, count = clean_tuple.split('\t', 1)
+    try:
+        count = int(count)
+    except ValueError:
+        continue
+    if noun == current_noun:
+        current_count += count
+    else:
+        if current_noun:
+            print('%s\t%s' % (current_noun, current_count))
+        current_count = count
+        current_noun = noun
 
-    noun_freq = {'han': 0, 'hon': 0, 'det': 0, 'den': 0, 'denne': 0, 'denna': 0, 'hen': 0}  # Designated words to map
-    counter = 0
-    for noun in sys.stdin:
-        clean_tuple = noun.strip()
-        noun, count = clean_tuple.split('\t', 1)
-        try:
-            count = int(count)
-        except ValueError:
-            continue
-        if noun in noun_freq:  # Catch the words
-            noun_freq[noun] += 1
-        elif noun == 'count':  # Catch the count
-            counter = int(count)
-
-    for noun in noun_freq:
-        noun_freq[noun] = noun_freq[noun] / count
-
-    print(noun_freq)
-
-
-main()
+if current_noun == noun:
+    print('%s\t%s' % (current_noun, current_count))
