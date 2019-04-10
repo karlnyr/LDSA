@@ -17,6 +17,6 @@ for line in sys.stdin:
         except KeyError:
             for word in json_line['text'].lower().split():
                 if word in nouns:
-                    print(f"{word}")  # Printing out touples to std.in
+                    print(word)  # Printing out touples to std.in
             count += 1
-print(f"{count}")
+print(count)
