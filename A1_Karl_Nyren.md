@@ -62,4 +62,4 @@ See attached graph:
 
 Following is a figure of the test run of the mapper and reducer setup, taken from a subset of 100 tweets:
 
-![Frequency of Swedish nouns in subset of tweets](https://github.com/kethuth/LDSA/blob/A1/Scripts/noun_freq.png)
+![Frequency of Swedish nouns in subset of tweets](https://github.com/kethuth/LDSA/blob/A1/Scripts/noun_frequency.png)

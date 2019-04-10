@@ -1,20 +1,30 @@
+import fileinput
 import matplotlib.pyplot as plt
 
 
-def plot_normalized(dictionary, count):
+def plot_normalized():
     """plotting the normalized tweet counts."""
 
-    for noun in dictionary:
-        dictionary[noun] = dictionary[noun] / count
-    list_it = sorted(dictionary.items())
-    x, y = zip(*list_it)
-    plt.figure()
+    array_characters = []
+    x = []
+    y = []
+    normaliser = 0
+    for line in fileinput.input():
+        word, count = line.rstrip('\n').split("\t")
+        if word == 'count':
+            normaliser = int(count)
+        else:
+            x.append(word)
+            y.append(int(count))
+    for i in range(len(y)):
+        y[i] = y[i] / normaliser
+    # y = y / normaliser
+    fig = plt.figure('word_counts')
     plt.bar(x, y)
-    plt.xlabel("Noun")
-    plt.ylabel("Frequency")
-    plt.title("Frequency of Swedish nouns in tweets")
-    plt.savefig('noun_freq.png')
+    plt.xlabel("Character starting word")
+    plt.ylabel("Counts")
+    plt.title("Counts of characters starting a word")
+    fig.savefig('noun_frequency.png')
 
 
-def main():
-    plot_normalized(noun_freq, count)
+plot_normalized()
