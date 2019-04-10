@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import json
 import sys
-
+import re
 """The purpose of this script is to  """
 
 count = 0  # Number of total unique tweets read from process.
@@ -14,7 +14,8 @@ for line in sys.stdin:
         try:  # Using error when searching dictionary missing Key
             json_line['retweeted_status']
         except KeyError:
-            for word in json_line['text'].lower().split():
+            clean_text = re.sub(r'[^\w\s]', '', json_line['text']) # Remove punctuations
+            for word in clean_text.lower().split():
                 if word in nouns:
                     print('%s\t%s' % (word, 1))  # Printing out touples to std.in
             count += 1
