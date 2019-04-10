@@ -54,10 +54,12 @@ $ less part-r-00000
 
 See attached graph:
 
-![alt text](https://github.com/kethuth/LDSA/blob/A1/word_counts.png)
+![Frequency of word starting characters](https://github.com/kethuth/LDSA/blob/A1/word_counts.png)
 
 ## Part II
 
-1. I would say that they are semi-structured data in the sense that their meta data is structured - such as date posted, the id etc. - however the texts themselves will be very unstructured. They key part of using RDBMs is to be able to store the items with their unique keys, however if we want to analyse the tweets we cannot get any further than the metadata in an RDBM before things starts to get very slow. By using key values and MapReduction one could analyse the content as well without slowing down the process to much. 
+1. I would say that they are semi-structured data in the sense that their meta data is structured - such as date posted, the id etc. - however the texts themselves will be very unstructured. They key part of using RDBMs is to be able to store the items with their unique keys, however if we want to analyse the tweets we cannot get any further than the meta-data in an RDBM before things starts to get very slow. By using key values and MapReduction one could analyse the content as well without slowing down the process to much. 
 
+Following is a figure of the test run of the mapper and reducer setup, taken from a subset of 100 tweets:
 
+![Frequency of Swedish nouns in subset of tweets](https://github.com/kethuth/LDSA/blob/A1/Scripts/noun_freq.png)
