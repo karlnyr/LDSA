@@ -14,7 +14,7 @@ for line in sys.stdin:
         try:  # Using error when searching dictionary missing Key
             json_line['retweeted_status']
         except KeyError:
-            clean_text = re.sub(r'[^\w\s]', '', json_line['text']) # Remove punctuations
+            clean_text = re.sub(r'[^\w\s]', ' ', json_line['text']) # Remove punctuations
             for word in clean_text.lower().split():
                 if word in nouns:
                     print('%s\t%s' % (word, 1))  # Printing out touples to std.in
