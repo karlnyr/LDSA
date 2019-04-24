@@ -1,6 +1,0 @@
-count	33
-den	18
-det	4
-han	7
-hen	2
-hon	4

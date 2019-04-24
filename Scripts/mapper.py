@@ -2,7 +2,7 @@
 import json
 import sys
 import re
-"""The purpose of this script is to  """
+"""Mapping occurances of Swedish pronouns in tweets"""
 
 count = 0  # Number of total unique tweets read from process.
 nouns = ['han', 'hon', 'det', 'den', 'denne', 'denna', 'hen']  # Designated words to map
@@ -11,7 +11,7 @@ nouns = ['han', 'hon', 'det', 'den', 'denne', 'denna', 'hen']  # Designated word
 for line in sys.stdin:
     if not line == '\n':
         json_line = json.loads(line)
-        try:  # Using error when searching dictionary missing Key
+        try:  # Using error when searching with a missing key
             json_line['retweeted_status']
         except KeyError:
             clean_text = re.sub(r'[^\w\s]', ' ', json_line['text']) # Remove punctuations

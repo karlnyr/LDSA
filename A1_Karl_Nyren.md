@@ -52,14 +52,18 @@ $ less part-r-00000
 
 ### Task 1.4
 
-See attached graph:
+We were to extract the number of times a character started a word using the altered version of WordCount java script. The altered version can be found [here](https://github.com/kethuth/LDSA/blob/A1/Scripts/FirstLetterCount.java), and the results from reading in the example text is plotted below in the graph.
 
-![Frequency of word starting characters](https://github.com/kethuth/LDSA/blob/A1/Scripts/word_counts.png)
+![Frequency of word starting characters](https://github.com/kethuth/LDSA/blob/A1/Figures/word_counts.png)
+
+As we can see the Java code is not sensitive to what a definition of a character is, it accepts special characters such as #, [ etc. and only start a new word on blank spaces. 
 
 ## Part II
 
 1. I would say that they are semi-structured data in the sense that their meta data is structured - such as date posted, the id etc. - however the texts themselves will be very unstructured. They key part of using RDBMs is to be able to store the items with their unique keys, however if we want to analyse the tweets we cannot get any further than the meta-data in an RDBM before things starts to get very slow. By using key values and MapReduction one could analyse the content as well without slowing down the process to much. 
 
-Following is a figure of the test run of the mapper and reducer setup, taken from a subset of 100 tweets:
+The task is to extract the number of occurences of the swedish pronouns han, hon, det, den, denna, denne and hen in tweets. We are to only use the unique tweets and normalize the counts of the pronouns by the number of tweets. The mapper and reducer can be found [here](https://github.com/kethuth/LDSA/blob/A1/Scripts) and the result gained from the analysis of the Twitter data supplied to us is plotted below. 
 
-![Frequency of Swedish nouns in subset of tweets](https://github.com/kethuth/LDSA/blob/A1/Scripts/noun_frequency.png)
+![Frequency of Swedish nouns in subset of tweets](https://github.com/kethuth/LDSA/blob/A1/Figures/noun_frequency.png)
+
+## Part III
