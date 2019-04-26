@@ -67,3 +67,18 @@ The task is to extract the number of occurences of the swedish pronouns han, hon
 ![Frequency of Swedish nouns in subset of tweets](https://github.com/kethuth/LDSA/blob/A1/Figures/noun_frequency.png)
 
 ## Part III
+```sql
+hive> CREATE EXTERNAL TABLE if NOT EXISTS Tweets (
+    > text STRING,
+    > retweeted_status STRING)
+    > ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe' STORED AS TEXTFILE;
+hive> LOAD DATA LOCAL INPATH '/home/ubuntu/tweet_data/tweets/files/*' OVERWRITE INTO TABLE Tweets;
+hive> select noun, count(noun)
+hive> select count(*) from Tweets where retweeted_status IS NULL AND LOWER(text) rlike '\\bhon\\b'; # select texts with hon
+# The same query was repeated for all pronouns, then normalized using
+hive> select count(*) from Tweets where retweeted_status IS NULL; # Count number of unique tweets
+```
+
+The number of tweets gained containing the pronouns came out different from the streaming framework. This is most likely due toS that my python code did not stop when it encountered one noun, instead it counts all occurances of the nouns in a tweet, whiclst hive will return when it finds the word once in the text string, thus counting it more properly in my opinion. 
+
+1. 
