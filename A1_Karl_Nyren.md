@@ -79,6 +79,10 @@ hive> select count(*) from Tweets where retweeted_status IS NULL AND LOWER(text)
 hive> select count(*) from Tweets where retweeted_status IS NULL; # Count number of unique tweets
 ```
 
-The number of tweets gained containing the pronouns came out different from the streaming framework. This is most likely due toS that my python code did not stop when it encountered one noun, instead it counts all occurances of the nouns in a tweet, whiclst hive will return when it finds the word once in the text string, thus counting it more properly in my opinion. 
+The number of tweets gained containing the pronouns came out different from the streaming framework. This is most likely due toS that my python code did not stop when it encountered one noun, instead it counts all occurances of the nouns in a tweet, whiclst hive will return when it finds the word once in the text string, thus counting it more properly in my opinion. I know very well that some retweeted_status might contain an original text in the tweet as well 
+but I count that every retweet regardless of added text is a non-unique tweet.
+
+ 
+
 
 1. 
