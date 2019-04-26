@@ -1,4 +1,4 @@
-#Assignment 1 - Karl Nyrén
+# Assignment 1 - Karl Nyrén
 In this lab we will go through the basic usage of Hadoop/MapReduce models.
 
 ## Part 1
